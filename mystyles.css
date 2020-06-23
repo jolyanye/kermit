@@ -67,8 +67,12 @@ body {font-family: sans-serif;
            height: 30px;
            float: right;}
 
-.searchbutton {margin-top: 15px;
-               margin-bottom: 10px;
+.searchbutton {margin-top: 10px;
+               margin-bottom: 5px;
+               margin-left: 5px;
+               margin-right: 5px;
+               width: 30px;
+               height: 30px;
                float: right;}
 
 .commentsection {width: 200px;
