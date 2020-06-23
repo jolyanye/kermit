@@ -11,6 +11,8 @@
         <a class="active" href="index.html">Home</a>
         <a href="contact.html">Contact</a>
         <a href="about.html">About</a>
+        <button class="searchbutton" onclick="myfunction()">search</button>
+        <input class="inputbox" id="myinput">
         </div>
     
         <div class="yeet">
@@ -37,20 +39,25 @@
         
         <div class="comments1">
         <p>Express your love for Kermit here!</p>
-        <form>
-        <label for="fname">Nickname:</label><br>
-        <input type="text" id="fname" name="fname"><br>
-        <label for="comment">Comment:</label><br>
-        <textarea name="comment" form="usrform"></textarea><br>
+        <p>Nickname:</p>
+        <input class="commentsection" type="text" id="nickname"><br>
+        <p>Comment:</p>
+        <input class="commentsection" type="text" id="comments"><br><br>
+        <button onclick="submit()">submit</button>
         <br>
-        <input type="submit" value="Submit">
-        </form>
         <br>
         </div>
     </body>
     
     <script>
-        alert("Kermit says enjoy your stay!");
+        function myfunction() {myinput = document.getElementById("myinput");
+                               alert(myinput.value);
+                               myinput.value="";}
+        
+        function submit() {comments = document.getElementById("comments");
+                           alert("submitted: " + comments.value);
+                           comments.value="";
+                           nickname.value="";}     
     </script>
 
 </html>
