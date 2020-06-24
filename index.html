@@ -55,14 +55,18 @@
     </body>
     
     <script>
-        function myfunction() {myinput = document.getElementById("myinput");
-                               alert(myinput.value);
-                               myinput.value="";}
-        
+        function myfunction() 
+        {data = [{pokemon:"bulbasaur",type:"grass"},{pokemon: "pikachu",type:"electric"},{pokemon:"charmander",type:"fire"}];
+        myinput = document.getElementById("myinput");
+        for (i=0;i<3;i++) {if (data[i]['pokemon'] == myinput.value.toLowerCase()) 
+                          {alert(data[i]['type']);
+                           break;}}
+        myinput.value = "";}
+
         function submit() {comments = document.getElementById("comments");
                            alert("submitted: " + comments.value);
-                           comments.value="";
-                           nickname.value="";}     
+                           comments.value = "";
+                           nickname.value = "";}     
     </script>
 
 </html>
