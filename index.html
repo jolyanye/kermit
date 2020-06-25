@@ -5,6 +5,8 @@
         <link rel="stylesheet" href="mystyles.css">
         <style>body{background-color: #D0F0C0;}</style>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="pokedex.json"></script>
+        <style>p.dashed {outline-style: dashed; padding: 20px; font-size: 20px;}</style>
     </head>
     
     <body>
@@ -20,11 +22,15 @@
         <font color="#03A89E">
         <h1>GOOD MORNING/EVENING!</h1>
         </font>
-
+            
         <font color="#000080">
         <p>This is Kermit-</p>
         <p>He said have a great day</p>
         </font>
+        
+        <p class="dashed">Pokedex search result:</p>
+            
+        <div id="info"></div>
         
         <img src="kermit.jpg" style="width: 400px; padding: 10px">
         <br>
@@ -33,34 +39,30 @@
         <iframe width="560" height="315" src="https://www.youtube.com/embed/WS3Lkc6Gzlk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
         </iframe>
         </div>
-    
+        
         <div class="comments2">
-        <font color="#000080">
-        <h4>Comments Section</h4>
-        </font>
+        <p class="dashed">COMMENTS SECTION</p>
         </div>
         
         <div class="comments1">
-        <font color="#000080">
         <p>Express your love for Kermit here!</p>
         <p>Nickname:</p>
         <input class="commentsection" type="text" id="nickname"><br>
         <p>Comment:</p>
         <input class="commentsection" type="text" id="comments"><br><br>
         <button onclick="submit()">submit</button>
-        </font>
         <br>
         <br>
         </div>
     </body>
     
     <script>
-        function myfunction() 
-        {data = [{pokemon:"bulbasaur",type:"grass"},{pokemon: "pikachu",type:"electric"},{pokemon:"charmander",type:"fire"}];
+        function myfunction() {myinput = document.getElementById("myinput");
         myinput = document.getElementById("myinput");
-        for (i=0;i<3;i++) {if (data[i]['pokemon'] == myinput.value.toLowerCase()) 
-                          {alert(data[i]['type']);
-                           break;}}
+        mydiv = document.getElementById("info");
+        for (i=0;i<data.length;i++) {if (data[i]['name']['english'].toLowerCase() == myinput.value.toLowerCase()) 
+        {mydiv.innerHTML = "<h1>" + data[i]['name']['english'] + "</h1><h2>" + data[i]['type'][0] + "</h2>";
+        break;}}
         myinput.value = "";}
 
         function submit() {comments = document.getElementById("comments");
