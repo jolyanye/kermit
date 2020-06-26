@@ -15,7 +15,7 @@
         <a href="contact.html">Contact</a>
         <a href="about.html">About</a>
         <button class="searchbutton" onclick="myfunction()"><i class="fa fa-search"></i></button>
-        <input class="inputbox" id="myinput">
+        <input class="inputbox" id="myinput" placeholder="search for pokemon...">
         </div>
     
         <div class="yeet">
@@ -57,18 +57,24 @@
     </body>
     
     <script>
+        var input = document.getElementById("myinput");
+        input.addEventListener("keyup", function(event) 
+        {if (event.keyCode === 13) 
+        {event.preventDefault();
+        myfunction();}});
+        
         function myfunction() {myinput = document.getElementById("myinput");
         myinput = document.getElementById("myinput");
         mydiv = document.getElementById("info");
         for (i=0;i<data.length;i++) {if (data[i]['name']['english'].toLowerCase() == myinput.value.toLowerCase()) 
-        {mydiv.innerHTML = "<h1>" + data[i]['name']['english'] + "</h1><h2>" + data[i]['type'][0] + "</h2>";
+        {mydiv.innerHTML = "<h1>" + data[i]['name']['english'] + "</h1><h2>" + "Type: " + data[i]['type'][0] + "</h2><h3>" + "HP: " + data[i]['base']['HP'] + "</h3><h3>" + "Attack: " + data[i]['base']['Attack'] + "</h3><h3>" + "Defense: " + data[i]['base']['Defense'] + "</h3><h3>" + "Sp. Attack: " + data[i]['base']['Sp. Attack'] + "</h3><h3>" + "Sp. Defense: " + data[i]['base']['Sp. Defense'] + "</h3><h3>" + "Speed: " + data[i]['base']['Speed'] + "</h3>";
         break;}}
         myinput.value = "";}
 
         function submit() {comments = document.getElementById("comments");
                            alert("submitted: " + comments.value);
                            comments.value = "";
-                           nickname.value = "";}     
+                           nickname.value = "";}
     </script>
 
 </html>
